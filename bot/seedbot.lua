@@ -212,7 +212,29 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-	"admin",
+    "Google",
+    "ME",
+    "aparat",
+    "azan",
+    "calculator",
+    "chat",
+    "filterw",
+    "gify",
+    "git-account",
+    "gps",
+    "instagram",
+    "robot",
+    "qr",
+    "reply",
+    "share",
+    "sudoers",
+    "tosticker",
+    "voice-space",
+    "wai",
+    "wai(2)",
+    "weather",
+    "welcome",
+    "admin",
     "onservice",
     "inrealm",
     "ingroup",
@@ -228,36 +250,30 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
-	"supergroup",
-	"whitelist",
-	"msg_checks"
+    "supergroup",
+    "whitelist",
+    "msg_checks"
     },
-    sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {219602465},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v4
+    about_text = [[Norton v2
 An advanced administration bot based on TG-CLI written in Lua
 
-https://github.com/SEEDTEAM/TeleSeed
+https://github.com/close.source
 
 Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@POTUS [Developer]
-@seyedan25 [Manager]
-@aRandomStranger [Admin]
+@Norton_sudo [Founder]&[developer]
+@c_n_a [Manager]
+@norton_bots [bot]
 
 Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
+cna 
+meraj
+nova
 
 Our channels
-@teleseedch [English]
-@iranseed [persian]
+@norton_team [persian]
 
-Our website 
-http://teleseed.seedteam.org/
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -472,138 +488,142 @@ will return group ban list
 
 ]],
 	help_text_super =[[
-SuperGroup Commands:
-
-!info
-Displays general info about the SuperGroup
-
-!admins
-Returns SuperGroup admins list
+📡 Norton V2 🌐 SuperGroup Commands:
 
 !owner
-Returns group owner
+دریافت آیدی مدیر اصلی گروه
 
 !modlist
-Returns Moderators list
-
-!bots
-Lists bots in SuperGroup
-
-!who
-Lists all users in SuperGroup
+دریافت لیست معاونان سوپرگروه
 
 !block
-Kicks a user from SuperGroup
-*Adds user to blocked list*
+اخراج و اضافه کردن یک فرد به لیست بلاک
 
 !ban
-Bans user from the SuperGroup
+بن کردن فردی از سوپرگروه
 
 !unban
-Unbans user from the SuperGroup
+آنبن کردن فردی از سوپرگروه
 
 !id
-Return SuperGroup ID or user id
-*For userID's: !id @username or reply !id*
-
-!id from
-Get ID of user message is forwarded from
+دریافت آیدی سوپرگروه یا یک فرد
 
 !kickme
-Kicks user from SuperGroup
-*Must be unblocked by owner or use join by pm to return*
+خروج از گروه در صورتی که فعال باشد
 
 !setowner
-Sets the SuperGroup owner
+تنظیم کردن مدیر اصلی سوپرگروه
 
-!promote [username|id]
-Promote a SuperGroup moderator
+!promote [یوزرنیم|آیدی]
+اضافه کردن مدیر به سوپرگروه
 
-!demote [username|id]
-Demote a SuperGroup moderator
+!demote [یوزرنیم|آیدی]
+حذف کردن مدیر از سوپرگروه
 
 !setname
-Sets the chat name
+تنظیم نام گروه
 
 !setphoto
-Sets the chat photo
+تنظیم عکس گروه
 
 !setrules
-Sets the chat rules
-
-!setabout
-Sets the about section in chat info(members list)
-
-!save [value] <text>
-Sets extra info for chat
-
-!get [value]
-Retrieves extra info for chat by value
+تنظیم قوانین گروه
 
 !newlink
-Generates a new group link
+ایجاد لینک جدید
 
 !link
-Retireives the group link
+دریافت لینک
 
 !rules
-Retrieves the chat rules
+دریافت قوانین
 
 !lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Lock group settings
-*rtl: Delete msg if Right To Left Char. is in name*
-*strict: enable strict settings enforcement (violating user will be kicked)*
+قفل کردن تنظیمات سوپرگروه
 
 !unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Unlock group settings
-*rtl: Delete msg if Right To Left Char. is in name*
-*strict: disable strict settings enforcement (violating user will not be kicked)*
+بازکردن تنظیمات سوپرگروه
 
-!mute [all|audio|gifs|photo|video|service]
-mute group message types
-*A "muted" message type is auto-deleted if posted
+!mute [chat|audio|gifs|photo|video|service]
+بستن امکان چت در سوپرگروه
 
-!unmute [all|audio|gifs|photo|video|service]
-Unmute group message types
-*A "unmuted" message type is not auto-deleted if posted
+!unmute [chat|audio|gifs|photo|video|service]
+دادن توانایی چت در سوپرگروه
 
-!setflood [value]
-Set [value] as flood sensitivity
+!setflood [عدد]
+تنظیم کردن حساسیت اسپم
 
 !settings
-Returns chat settings
-
-!muteslist
-Returns mutes for chat
-
-!muteuser [username]
-Mute a user in chat
-*If a muted user posts a message, the message is deleted automaically
-*only owners can mute | mods and owners can unmute
-
-!mutelist
-Returns list of muted users in chat
+دریافت تنظیمات سوپرگروه
 
 !banlist
-Returns SuperGroup ban list
+دریافت لیست اعضای بن شده
 
 !clean [rules|about|modlist|mutelist]
+پاک کردن قوانین ، درباره ، اعضای بی صدا و لیست مدیران
 
 !del
-Deletes a message by reply
+حذف یک پیام توسط ریپلی در سوپرگروه
 
 !public [yes|no]
-Set chat visibility in pm !chats or !chatlist commands
+پابلیک یا خصوصی کردن یک سوپرگروه
 
-!res [username]
-Returns users name and id by username
+!git (یوزرنیم)
+دریافت اطلاعات یک یوزرنیم در گیت هاب
+
+!google 
+سرچ کردن در گوگل
+
+!aparat متن
+سرچ کردن یک متن در آپارات
+
+!praytime (شهر)
+دریافت وقت اذان یک شهر
+
+!reply [متن]
+تکرار یک متن توسط ربات
+
+!gif متن
+سرچ کردن یک متن و دریافت به صورت گیف
+
+!gps (شهر) (کشور)
+دریافت مکان مورد نظر از گوگل
+
+!insta (یوزرنیم اینستا)
+سرچ کردن یک یوزرنیم در اینستاگرام
+
+!tosticker
+تبدیل کردن عکس به استیکر توسط ریپلی
+
+!info
+دریافت اطلاعات یک فرد
+
+!qr
+دریافت هر چیزی به صورت بارکد
+
+!calc 3+2
+محاسبه عملیات ریاضی
+
+!weather
+دریافت وضعیت آب و هوای یک شهر
+
+!voice [متن]
+تبدیل متن خود به صدا توسط ربات
+
+!git نام اکانت
+دریافت اطلاعات از گیت هاب مورد نظر
+
+!filter + کلمه
+اضافه کردن یک کلمه به لیست فیلتر
+
+!filter - کلمه
+حذف یک کلمه از لیست فیلترینگ
+
+!filterlist
+دریافت لیست فیلترینگ
 
 
-!log
-Returns group logs
-*Search for kick reasons using [#RTL|#spam|#lockmember]
-
-**You can use "#", "!", or "/" to begin all commands
+**You can use "!", or "/" to begin all commands
 
 *Only owner can add members to SuperGroup
 (use invite link to invite)
