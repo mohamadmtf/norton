@@ -1,12 +1,15 @@
 do
 
 function run(msg, matches)
-send_contact(get_receiver(msg), "Your Bot Phone Number", "fri name", "Las name", ok_cb, false)
-end
 
+if matches[1] == 'share' then
+send_contact(get_receiver(msg), "+12088344120", "Norton", "Use /Share To Get Number", ok_cb, false)
+end
+end
 return {
 patterns = {
-"^!share$"
+"^[#!/]([Ss][Hh][Aa][Rr][Ee])$",
+"^([Ss][Hh][Aa][Rr][Ee])$"
 
 },
 run = run
