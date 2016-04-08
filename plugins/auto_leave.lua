@@ -1,23 +1,30 @@
-do local function run(msg, matches) 
-local user_bot = 202886555 
-local receiver = get_receiver(msg)
-    if matches[1] == 'leave' and is_sudo(msg) then
-       channel_kick_user("channel#id"..msg.to.id, 'user#id'..user_bot, ok_cb, false)
-       chat_del_user("chat#id"..msg.to.id, 'user#id'..user_bot, ok_cb, false)
-    leave(receiver, ok_cb, false)
-    elseif msg.service and msg.action.type == 'chat_add_user' or 'channel_invite_user' and msg.action.user.id == tonumber(user_bot) and not is_sudo(msg) then
-       send_large_msg(receiver, '', ok_cb, false)
-       chat_del_user(receiver, 'user#id'..user_bot, ok_cb, false)
-       channel_kick_user("channel#id"..msg.to.id, 'user#id'..user_bot, ok_cb, 
-false)
-    leave(receiver, ok_cb, false)
-    end end
- 
+--[[
+Kicking ourself (bot) from unmanaged groups.
+When someone invited this bot to a group,  the bot will exit immediately by kicking itself out of that group.
+No switch available. You need to turn it on or off using !plugins command.
+--]]
+
+-- suppress '*** lua: attempt to call a nil value' warning
+local function callback(extra, success, result)
+  vardump(success)
+  vardump(result)
+end
+
+local function run(msg)
+  if msg.service and msg.action.type == 'chat_add_user' then
+    local data = load_data(_config.moderation.data)
+    if not data[tostring(msg.to.id)] then
+      print "This is not our group. Leaving..."
+      chat_del_user('chat#id'..msg.to.id, 'user#id'..167946378, callback, false)
+    end
+  end
+end
+
 return {
+  description = "Kicking ourself (bot) from unmanaged groups.",
+  usage = "Plugin For Kiling add with id ....",
   patterns = {
-    "^[!/#](leave)$",
-    "^!!tgservice (.+)$",
+    "^!!tgservice (.+)$"
   },
   run = run
 }
-end
