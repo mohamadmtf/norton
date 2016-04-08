@@ -218,6 +218,13 @@ function create_config( )
     "azan",
     "calculator",
     "chat",
+    "feedback",
+    "isup",
+    "insudo",
+    "text",
+    "time",
+    "webshot",
+    "sticker2photo",
     "filterw",
     "gify",
     "git-account",
@@ -231,7 +238,6 @@ function create_config( )
     "tosticker",
     "voice-space",
     "wai",
-    "wai(2)",
     "weather",
     "welcome",
     "admin",
@@ -250,13 +256,16 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
+    "Robot",
+    "support",
+    "version",
     "supergroup",
     "whitelist",
     "msg_checks"
     },
-    sudo_users = {219602465},--Sudo users
+    sudo_users = {219602465,177340295},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Norton v2
+    about_text = [[Norton v3
 An advanced administration bot based on TG-CLI written in Lua
 
 https://github.com/close.source
@@ -269,7 +278,6 @@ Admins
 Special thanks to
 cna 
 meraj
-nova
 
 Our channels
 @norton_team [persian]
@@ -488,149 +496,297 @@ will return group ban list
 
 ]],
 	help_text_super =[[
-📡 Norton V2 🌐 SuperGroup Commands:
+🚀 Norton V2 📡 SuperGroup Commands:
 
-!owner
-دریافت آیدی مدیر اصلی گروه
+🔘 Banhamer List : ☠
 
-!modlist
-دریافت لیست معاونان سوپرگروه
+🔸 !block 
 
-!block
-اخراج و اضافه کردن یک فرد به لیست بلاک
+«ریموو کردن فردی با استفاده از ریپلی»
 
-!ban
-بن کردن فردی از سوپرگروه
+🔹 !ban {username} or {id}
 
-!unban
-آنبن کردن فردی از سوپرگروه
+«بن کردن فردی از گروه»
 
-!id
-دریافت آیدی سوپرگروه یا یک فرد
+🔸!banlist
 
-!kickme
-خروج از گروه در صورتی که فعال باشد
+«دریافت لیست افراد بن شده»
 
-!setowner
-تنظیم کردن مدیر اصلی سوپرگروه
+🔹 !unban {username} or {id}
 
-!promote [یوزرنیم|آیدی]
-اضافه کردن مدیر به سوپرگروه
+«انبن کردن فردی»
 
-!demote [یوزرنیم|آیدی]
-حذف کردن مدیر از سوپرگروه
+🔸 !kickme
 
-!setname
-تنظیم نام گروه
+«خروج از گروه»
 
-!setphoto
-تنظیم عکس گروه
+🔹 !kickinactive
 
-!setrules
-تنظیم قوانین گروه
+«حذف اعضای غیرغعال گروه»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🔘 Statistics List : 🔮
 
-!newlink
-ایجاد لینک جدید
+🔸 !who
 
-!link
-دریافت لینک
+«لیست+ایدی همه اعضا»
 
-!rules
-دریافت قوانین
+🔹 !all
 
-!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-قفل کردن تنظیمات سوپرگروه
+«دریافت اطلاعات کلی گروه»
 
-!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-بازکردن تنظیمات سوپرگروه
+🔸 !stats
 
-!mute [chat|audio|gifs|photo|video|service]
-بستن امکان چت در سوپرگروه
+«امار کلی گروه»
 
-!unmute [chat|audio|gifs|photo|video|service]
-دادن توانایی چت در سوپرگروه
+🔹 !modlist
 
-!setflood [عدد]
-تنظیم کردن حساسیت اسپم
+«لیست مدیران گروه»
 
-!settings
-دریافت تنظیمات سوپرگروه
+🔸 !banlist
 
-!banlist
-دریافت لیست اعضای بن شده
+«دریافت لیست افراد بن شده»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🔘 Rate Member : 🎖🏅🎖
 
-!clean [rules|about|modlist|mutelist]
-پاک کردن قوانین ، درباره ، اعضای بی صدا و لیست مدیران
+🔹 !setowner {@username} or {id}
 
-!del
-حذف یک پیام توسط ریپلی در سوپرگروه
+«ایجاد مدیر جدید برای گروه»
 
-!public [yes|no]
-پابلیک یا خصوصی کردن یک سوپرگروه
+🔸 !promote {@username}
 
-!git (یوزرنیم)
-دریافت اطلاعات یک یوزرنیم در گیت هاب
+«اضافه کردن فردی به لیست مدیران گروه»
 
-!google 
-سرچ کردن در گوگل
+🔹 !demote {@username}
 
-!aparat متن
-سرچ کردن یک متن در آپارات
+«حذف کردن فردی از لیست مدیران»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🔘 General Changes : ⚙
 
-!praytime (شهر)
-دریافت وقت اذان یک شهر
+🔸 !setname [name]
 
-!reply [متن]
-تکرار یک متن توسط ربات
+«عوض کردن نام گروه»
 
-!gif متن
-سرچ کردن یک متن و دریافت به صورت گیف
+🔹 !setphoto
 
-!gps (شهر) (کشور)
-دریافت مکان مورد نظر از گوگل
+«ایجاد عکس جدید برای پروفایل گروه»
 
-!insta (یوزرنیم اینستا)
-سرچ کردن یک یوزرنیم در اینستاگرام
+🔸 !setrules {txt}
 
-!tosticker
-تبدیل کردن عکس به استیکر توسط ریپلی
+«ایجاد قوانین برای گروه»
 
-!info
-دریافت اطلاعات یک فرد
+🔹 !setabout {txt}
 
-!qr
-دریافت هر چیزی به صورت بارکد
+«ایجاد درباره گروه»
 
-!calc 3+2
-محاسبه عملیات ریاضی
+🔸 !setflood {value}
 
-!weather
-دریافت وضعیت آب و هوای یک شهر
+«تنظیم کردن حساسیت به اسپم»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♠️🔘 View Details : 🔭
 
-!voice [متن]
-تبدیل متن خود به صدا توسط ربات
+🔹 !about
 
-!git نام اکانت
-دریافت اطلاعات از گیت هاب مورد نظر
+«درباره گروه»
 
-!filter + کلمه
-اضافه کردن یک کلمه به لیست فیلتر
+🔸 !rules
 
-!filter - کلمه
-حذف یک کلمه از لیست فیلترینگ
+«دریافت قوانین گروه»
 
-!filterlist
-دریافت لیست فیلترینگ
+🔹 !settings
 
+«دریافت تنظیمات سوپرگروه»
+
+🔸 !help
+
+«دریافت لیست کامل ازدستورات»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♣️🔘 Security Group : 🛡⚖
+
+🔹 !lock {member|rtl|arabic|spam|links|sticker|strick|contacts|flood}
+
+«قفل کردن تنظیمات سوپرگروه»
+
+🔸 !unlock {member|rtl|arabic|spam|links|sticker|strick|contacts|flood}
+
+«باز کردن تنظیمات سوپر گروه»
+
+🔸 !mute all
+
+«قطع کردن کامل امکانات (چت و ...)»
+ 
+🔹 !mute {audio|gifs|chat|video|service|photo}
+
+«باز کردن امکان چت ، عکس ، ویدیو ، و ...»
+
+🔸 !unmute {audio|gifs|chat|video|service|photo}
+
+«باز کردن امکان چت ، عکس ، ویدیو ، و ...»
+
+🔹 !muteuser {@username}
+
+«قطع کردن امکان چت از یکی از اعضا»
+
+🔸 !clean {rules|about|modlist|mutelist}
+
+«پاک کردن قوانین ٬ درباره گروه ٬ اعضای بی صدا شده و لیست مدیران»
+
+🔹 !del
+   
+«حذف یک پیام توسط ریپلی در سوپرگروه»
+
+🔸 !public {yes|no}
+
+«عمومی یا شخصی کردن گروه»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♠️🔘 Fun Time : 🎯
+
+🔹 !git {github user}
+
+«دریافت اطلاعات یک یوزر در گیت هاب»
+
+🔸 !google 
+
+«سرچ کردن در گوگل»
+
+🔹 !aparat
+
+«سرچ کردن یک ویدیو در اپارات»
+
+🔸 !reply {txt}
+
+«تکرار یک حرف توسط ربات»
+
+🔹 !gif {txt}
+
+«سرچ کردن یک متن و دریافت ان به صورت گیف»
+
+🔸 !gps {city} {country}
+
+«دریافت عکس و نقشه از مکان مورد نظر در گوگل مپ»
+
+🔹 !insta {instagram user}
+
+«سرچ کردن یک اکانت عمومی در اینستاگرام»
+
+🔸 !qr {link|txt}
+
+«دریافت هر چیز به صورت بارکد»
+
+🔹 !calc {2+7}
+
+«محاسبه عملیات ریاضی»
+
+🔸 !weather {city}
+
+«دریافت وضعیت اب و هوای یک شهر»
+
+🔹 !t2i 
+
+«تبدیل متن به عکس»
+
+🔸 !tophoto
+
+«تبدیل استیکر به عکس»
+
+🔹 !web {http://.......}
+
+«فرستادن اسکرین از پیج مورد نظر»
+
+🔸 !isup
+
+«دریافت ای پی و پینگ»
+
+🔹 !insudo
+
+«نشان دادن سودو اصلی»
+
+🔸 !time
+
+«نشان دادن ساعت»
+
+🔹 !voice {txt}
+
+«تبدیل متن به صدا توسط ربات» 
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♣🔘 Service Provider : 🔧
+
+🔸 !link
+
+«نمایش لینک گروه»
+ 
+🔹 !newlink
+
+«ایجاد لینک جدید»
+
+🔸 !linkpv
+
+«فرستادن لینک گروه در پی وی»
+
+🔹 !invite {@username}
+
+«اضافه کردن شخص تو گروه(حتما شماره ربات را سیو کرده باشد)»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♠🔘️ Member Profiles & Groups : 🔰
+
+🔸 !owner
+
+«دریافت ایدی مدیر اصلی سوپر گروه»
+
+🔹 !id
+
+«دریافت ایدی سوپر گروه یا خود و ...»
+
+🔸 !res {@username}
+
+«پیدا کردن ای دی شخص»
+
+🔹 !info
+
+«دریافت اطلاعات خود یا دیگران»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🔘♣️Filter Word Mode : ♻️
+
+🔸 !filter + {word}
+
+«اضافه کردن یک کلمه به لیست کلمات فیلتر شده»
+
+🔹 !filter - {word}
+
+«حذف یک کلمه از لیست کلمات فیلتر شده»
+
+🔸 !filterlist
+
+«دریافت لیست کلمات فیلتر شده»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♠️🔘 Pray : 🔆
+
+🔹!praytime
+
+«دریافت وقت اذان یک شهر»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🔘 Support : 💠
+
+🔸 !feedback {idea}
+
+«ارسال نظرات به سازنده ربات»
+
+🔹 !version
+
+«دریافت ورژن ربات»
+
+🔸 !support
+
+«دعوت سازنده ربات به گروه»
+(در صورت مشکل)
+🔹 !share 
+
+«فرستادن شماره ربات»
 
 **You can use "!", or "/" to begin all commands
-
-*Only owner can add members to SuperGroup
-(use invite link to invite)
-
-*Only moderators and owner can use block, ban, unban, newlink, link, setphoto, setname, lock, unlock, setrules, setabout and settings commands
-
-*Only owner can use res, setowner, promote, demote, and log commands
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+♠📡.....Have a good groups with Norton ßot.....💠
+Channel : @Norton_team
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
 
 ]],
   }
