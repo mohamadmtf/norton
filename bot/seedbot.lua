@@ -278,6 +278,7 @@ Admins
 Special thanks to
 cna 
 meraj
+sepehr S.a
 
 Our channels
 @norton_team [persian]
@@ -784,7 +785,7 @@ will return group ban list
 
 **You can use "!", or "/" to begin all commands
 〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
-♠📡.....Have a good groups with Norton ßot.....💠
+♠📡.....Have a good group with Norton ßot.....💠
 Channel : @Norton_team
 〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
 
