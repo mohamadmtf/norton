@@ -277,7 +277,7 @@ function create_config( )
     about_text = [[Norton v3
 An advanced administration bot based on TG-CLI written in Lua
 
-https://github.com/close.source
+https://github.com/close...source
 
 Admins
 @Norton_sudo [Founder]&[developer]
