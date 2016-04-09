@@ -258,7 +258,7 @@ function create_config( )
     "leave_ban",
     "robot",
     "wiki",
-    "s2a"
+    "s2a",
     "webshot",
     "addplug",
     "cpu",
