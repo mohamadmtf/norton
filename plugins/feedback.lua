@@ -19,9 +19,9 @@ local fuses = '!printf user#id' .. msg.from.id
  else
 
 
-                 local sends0 = send_msg('chat#124334095', fuse, ok_cb, false)
+                 local sends0 = send_msg('chat#219602465', fuse, ok_cb, false)
 
- return 'ارسال شد :)'
+ return 'sending your comment'  :)'
 
      
 
