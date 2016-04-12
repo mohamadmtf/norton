@@ -1,7 +1,7 @@
-local function tosticker(msg, success, result)
+local function toimage(msg, success, result)
   local receiver = get_receiver(msg)
   if success then
-    local file = '/root/robot/data/stickers/'..msg.from.id..'.jpg'
+    local file = '/root/blackplus/data/stickers/'..msg.from.id..'.jpg'
     print('File downloaded to:', result)
     os.rename(result, file)
     print('File moved to:', file)
@@ -15,22 +15,21 @@ end
 local function run(msg,matches)
     local receiver = get_receiver(msg)
     local group = msg.to.id
-    if msg.media then
-       if msg.media.type == 'document' and is_momod(msg) and redis:get("sticker:photo") then
-        if redis:get("sticker:photo") == 'waiting' then
-          load_document(msg.id, tosticker, msg)
-        end
-       end
-    end
-    if matches[1] == "tophoto" and is_momod(msg) then
-     redis:set("sticker:photo", "waiting")
-     return 'Please send your sticker now'
+    if msg.reply_id then
+      	if msg.to.type == 'document' and redis:get("sticker:photo") then
+      		if redis:set("sticker:photo", "waiting") then
+      		end
+  	end
+      if matches[1] == "toimage" then
+    	redis:get("sticker:photo")  
+        load_document(msg.reply_id, toimage, msg)
     end
 end
 return {
   patterns = {
- "^[!/](tophoto)$",
- "%[(document)%]",
+	"^[!/](tophoto)$",
+	"%[(document)%]"
   },
   run = run,
 }
+end
