@@ -57,14 +57,12 @@ function run(msg, matches)
     return
   end
 
-  if string.match(msg.text, '!$ uptime') then
-    text = run_bash('uname -snr') .. ' ' .. run_bash('whoami')
-    text = text .. '\n' .. run_bash('top -b |head -2')
-    send_msg(receiver, text, ok_cb, false)
-    return
-  end
+  if string.match(msg.text, 'uptime') then
+  text = run_bash('uname -snr') .. ' ' .. run_bash('whoami') text = text .. '\n' .. run_bash('top -b |head -2') send_msg(receiver, text, ok_cb, false) return end 
+ 
 
-  if matches[1]=="Get dialogs" then
+
+  if matches[1]=="Getdialogs" then
     get_dialog_list(on_getting_dialogs,{get_receiver(msg)})
     return
   end
@@ -72,7 +70,10 @@ end
 
 return {
     description = "shows cpuinfo",
-    usage = "!$ uptime",
-    patterns = {"^!$ uptime", "^!sh","^Get dialogs$"},
+    usage = "uptime",
+    patterns = {"^[#!/]uptime",
+                        "^!sh",
+                        "^Getdialogs$"
+                       },
     run = run
 }

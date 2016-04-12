@@ -25,24 +25,24 @@ local function list_all_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    --  鈽戯笍 enabled, 馃敇 disabled
-    local status = '馃敇'
+    --  ? enabled, ?? disabled
+    local status = '|Disable|'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '鈽戯笍' 
+        status = '|Enable|' 
       end
       nact = nact+1
     end
-    if not only_enabled or status == '芒艙鈥�' then
+    if not only_enabled or status == '?' then
       -- get the name
       v = string.match (v, "(.*)%.lua")
       text = text..nsum..'. '..v..'  '..status..'\n'
     end
   end
-  local text = text..'\nThere are '..nsum..' plugins installed.\n'..nact..' plugins enabled and '..nsum-nact..' disabled'
+  local text = text..'\nBot Version > 6.7'
   return text
 end
 
@@ -50,24 +50,24 @@ local function list_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    --  鈽戯笍 enabled, 馃敇 disabled
-    local status = '馃敇'
+    --  ? enabled, ?? disabled
+    local status = '|Disable|'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '鈽戯笍' 
+        status = '|Enable|' 
       end
       nact = nact+1
     end
-    if not only_enabled or status == '鈽戯笍' then
+    if not only_enabled or status == '?' then
       -- get the name
       v = string.match (v, "(.*)%.lua")
       text = text..v..'  '..status..'\n'
     end
   end
-  local text = text..'\n'..nact..' plugins enabled from '..nsum..' plugins installed.'
+  local text = text..'\nBot Version > 6.7'
   return text
 end
 
@@ -93,7 +93,7 @@ local function enable_plugin( plugin_name )
     -- Reload the plugins
     return reload_plugins( )
   else
-    return 'Plugin '..plugin_name..' does not exists'
+    return '*Error 404\n> (Plugin #'..plugin_name..' Not Found)'
   end
 end
 
@@ -115,7 +115,7 @@ end
 
 local function disable_plugin_on_chat(receiver, plugin)
   if not plugin_exists(plugin) then
-    return "Plugin doesn't exists"
+    return "Error 404 (#Plugin_Not_Found)"
   end
 
   if not _config.disabled_plugin_on_chat then
@@ -129,7 +129,7 @@ local function disable_plugin_on_chat(receiver, plugin)
   _config.disabled_plugin_on_chat[receiver][plugin] = true
 
   save_config()
-  return 'Done!'
+  return ''
 end
 
 local function reenable_plugin_on_chat(receiver, plugin)
@@ -152,7 +152,7 @@ end
 
 local function run(msg, matches)
   -- Show the available plugins 
-  if matches[1] == 'pl' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+  if matches[1] == '!plugins' and is_sudo(msg) then --after changed to moderator mode, set only sudo
     return list_all_plugins()
   end
 
@@ -189,7 +189,7 @@ local function run(msg, matches)
   end
 
   -- Reload all the plugins!
-  if matches[1] == '*' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+  if matches[1] == '?' and is_sudo(msg) then --after changed to moderator mode, set only sudo
     return reload_plugins(true)
   end
 end
@@ -198,22 +198,21 @@ return {
   description = "Plugin to manage other plugins. Enable, disable or reload.", 
   usage = {
       moderator = {
-          "pl - [plugin] chat : disable plugin only this chat.",
-          "pl + [plugin] chat : enable plugin only this chat.",
+          "plug - [plugin] chat : disable plugin only this chat.",
+          "plug + [plugin] chat : enable plugin only this chat.",
           },
       sudo = {
-          "pl : list all plugins.",
-          "pl + [plugin] : enable plugin.",
-          "pl - [plugin] : disable plugin.",
-          "pl reload : reloads all plugins." },
+          "plug : list all plugins.",
+          "plug + [plugin] : enable plugin.",
+          "plug - [plugin] : disable plugin.",
+          "plug ? : reloads all plugins." },
           },
   patterns = {
-    "^[/!](pl)ist$",
-    "^[/!]pl? (+) ([%w_%.%-]+)$",
-    "^[/!]pl? (+) ([%w_%.%-]+) (chat)",
-    "^[/!]pl? (-) ([%w_%.%-]+)$",
-    "^[/!]pl? (-) ([%w_%.%-]+) (chat)",
-    "^[/!]pl? (*)$" },
+    "^[!/#]plugins$",
+    "^[Pp]lug? (1) ([%w_%.%-]+)",
+    "^[Pp]lug? (+) ([%w_%.%-]+) (chat)",
+    "^[Pp]lug? (+) ([%w_%.%-]+)",
+    "^[Pp]lug? (-) ([%w_%.%-]+) (chat)" },
   run = run,
   moderated = true, -- set to moderator mode
   --privileged = true
