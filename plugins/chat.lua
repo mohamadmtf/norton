@@ -11,8 +11,8 @@ end
 if msg.text == "hello" then
 	return "Hi honey"
 end
-if msg.text == "mohammad" then
-	return "chikaresh dari"
+if msg.text == "manager" then
+	return "@c_n_a"
 end
 if msg.text == "salam" then
 	return "salam"
@@ -20,7 +20,7 @@ end
 if msg.text == "khobi" then
 	return "awlii"
 end
-if msg.text == "norton x" then
+if msg.text == "norton bot" then
 	return "is strong"
 end
 if msg.text == "sudo" then
@@ -38,9 +38,6 @@ end
 if msg.text == "Bot" then
 	return "Huuuum?"
 end
-if msg.text == "?" then
-	return "Hum??"
-end
 if msg.text == "Bye" then
 	return "Babay"
 end
@@ -56,11 +53,11 @@ return {
 		"^[Hh]i$",
 		"^[Hh]ello$",
 		"^[Nn]orton x$",
-                "^[Mm]ohammad$",
+                "^[Mm]anager$",
                 "^[Ss]udo$",
                 "^[Kk]hobi$",
 		"^Khobi$",
-		"^[Bb]ot$",
+                "^[Bb]ot$",
 		"^[Nn]orton$",
 		"^[Bb]ye$",
 		"^?$",
