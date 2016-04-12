@@ -219,11 +219,9 @@ function create_config( )
     "calculator",
     "chat",
     "feedback",
-    "isup",
     "insudo",
     "text",
     "time",
-    "webshot",
     "sticker2photo",
     "help",
     "filterw",
@@ -245,6 +243,7 @@ function create_config( )
     "onservice",
     "inrealm",
     "ingroup",
+    "autoleave_Super",
     "inpm",
     "banhammer",
     "stats",
@@ -259,12 +258,19 @@ function create_config( )
     "leave_ban",
     "Robot",
     "wiki",
-    "S2a",
+    "S2A",
     "plugins",
-    "webshot",
+    "groupLimiter",
+    "invSudo_Super",
+    "norton",
+    "number",
+    "plugins",
+    "toStickertxt",
+    "tophoto",
     "addplug",
     "cpu",
     "imdb",
+    "linkpv",
     "tosupport",
     "support",
     "version",
@@ -508,88 +514,87 @@ will return group ban list
 	help_text_super =[[
 🚀 Norton V3 SuperGroup Commands:
 
-🔥 Banhamer List : 
+🔘Banhamer List:
 
-⚡!block 
+🔸!block 
 «ریموو کردن فردی با استفاده از ریپلی»
-⚡!ban {username} or {id}
+🔹!ban {username} or {id}
 «بن کردن فردی از گروه»
-⚡!banlist
+🔸!banlist
 «دریافت لیست افراد بن شده»
-⚡!unban {username} or {id}
+🔹!unban {username} or {id}
 «انبن کردن فردی»
-⚡!kickme
+🔸!kickme
 «خروج از گروه»
-⚡!kickinactive
-«حذف اعضای غیرغعال گروه»
-➖➖➖➖➖➖➖➖➖➖
-💠 Statistics List : 
+🔹!kickinactive
+«حذف اعضای غیر فعال گروه»
+🔘Statistics List:🔮
 
-⚡!who
+🔸!who
 «لیست+ایدی همه اعضا»
-⚡!all
+🔹!all
 «دریافت اطلاعات کلی گروه»
-⚡!stats
+🔸!stats
 «امار کلی گروه»
-⚡!modlist
+🔹 !modlist
 «لیست مدیران گروه»
-⚡!banlist
+🔸!banlist
 «دریافت لیست افراد بن شده»
-➖➖➖➖➖➖➖➖➖➖
-🏆 Rate Member :
+➖➖➖➖➖➖➖➖➖➖➖
+🔘Rate Member:🎖
 
-⚡!setowner {@username} or {id}
+🔹!setowner {@username} or {id}
 «ایجاد مدیر جدید برای گروه»
-⚡!promote {@username}
+🔸!promote {@username}
 «اضافه کردن فردی به لیست مدیران گروه»
-⚡!demote {@username}
+🔹!demote {@username}
 «حذف کردن فردی از لیست مدیران»
-➖➖➖➖➖➖➖➖➖➖
-🔎 General Changes : 
+➖➖➖➖➖➖➖➖➖➖➖
+🔘General Changes:⚙
 
-⚡!setname [name]
+🔸!setname [name]
 «عوض کردن نام گروه»
-⚡!setphoto
+🔹!setphoto
 «ایجاد عکس جدید برای پروفایل گروه»
-⚡!setrules {txt}
+🔸!setrules {txt}
 «ایجاد قوانین برای گروه»
-⚡!setabout {txt}
+🔹!setabout {txt}
 «ایجاد درباره گروه»
-⚡!setflood {value}
+🔸!setflood {value}
 «تنظیم کردن حساسیت به اسپم»
-➖➖➖➖➖➖➖➖➖➖
-♠️💡 View Details : 
+➖➖➖➖➖➖➖➖➖➖➖
+🔘View Details:🔭
 
-⚡!about
+🔹!about
 «درباره گروه»
-⚡!rules
+🔸!rules
 «دریافت قوانین گروه»
-⚡!settings
+🔹!settings
 «دریافت تنظیمات سوپرگروه»
-⚡!help
-«دریافت لیست کامل از دستورات»
-➖➖➖➖➖➖➖➖➖➖
-♣️🔐 Security Group :
+🔸!help
+«دریافت لیست کامل ازدستورات»
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🔘Security Group:🛡
 
-⚡!lock {member|rtl|arabic|spam|links|sticker|strick|contacts|flood}
+🔹!lock {member|rtl|arabic|spam|links|sticker|strick|contacts|flood}
 «قفل کردن تنظیمات سوپرگروه»
-⚡!unlock {member|rtl|arabic|spam|links|sticker|strick|contacts|flood}
+🔸!unlock {member|rtl|arabic|spam|links|sticker|strick|contacts|flood}
 «باز کردن تنظیمات سوپر گروه»
-⚡!mute all
+🔸!mute all
 «قطع کردن کامل امکانات (چت و ...)»
-⚡!mute {audio|gifs|chat|video|service|photo}
+🔹!mute {audio|gifs|chat|video|service|photo}
 «باز کردن امکان چت ، عکس ، ویدیو ، و ...»
-⚡!unmute {audio|gifs|chat|video|service|photo}
+🔸!unmute {audio|gifs|chat|video|service|photo}
 «باز کردن امکان چت ، عکس ، ویدیو ، و ...»
-⚡!muteuser {@username}
+🔹!muteuser {@username}
 «قطع کردن امکان چت از یکی از اعضا»
-⚡!clean {rules|about|modlist|mutelist}
+🔸!clean {rules|about|modlist|mutelist}
 «پاک کردن قوانین ٬ درباره گروه ٬ اعضای بی صدا شده و لیست مدیران»
-⚡!del
+🔹!del
 «حذف یک پیام توسط ریپلی در سوپرگروه»
-⚡!public {yes|no}
+🔸!public {yes|no}
 «عمومی یا شخصی کردن گروه»
-➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖
 ♠️
 
 ]],
